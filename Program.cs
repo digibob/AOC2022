@@ -5,7 +5,8 @@
         static void Main(string[] args)
         {
             //Puzzle01();
-            Puzzle02();
+            //Puzzle02();
+            Puzzle03();
         }
     }
 }
