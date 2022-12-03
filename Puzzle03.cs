@@ -9,15 +9,15 @@ namespace AOC2022
         {
             string[] lines = System.IO.File.ReadAllLines("puzzles/input03.txt");
 
-            System.Func<char, int> score_func = (char x) => char.IsUpper(x) ? (x - 38) : (x - 96);
+            Func<char, int> score_func = (char x) => char.IsUpper(x) ? (x - 38) : (x - 96);
 
             int score = 0;
 
             foreach (string line in lines)
             {
                 int mid = line.Length / 2;
-                var left = line.Substring(0, mid).ToCharArray();
-                var right = line.Substring(mid).ToCharArray();
+                string left = line.Substring(0, mid);
+                string right = line.Substring(mid);
 
                 char shared = left.Intersect(right).First();
 
