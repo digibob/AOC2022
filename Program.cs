@@ -8,7 +8,8 @@
             //Puzzle02();
             //Puzzle03();
             //Puzzle04();
-            Puzzle05();
+            //Puzzle05();
+            Puzzle06();
         }
     }
 }
