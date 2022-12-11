@@ -39,7 +39,7 @@ namespace AOC2022
 
         static void Puzzle11()
         {
-            string[] lines = System.IO.File.ReadAllLines("puzzles/input11_test.txt");
+            string[] lines = System.IO.File.ReadAllLines("puzzles/input11.txt");
 
             UInt64 product_of_divisors = 1;
 
