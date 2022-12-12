@@ -112,28 +112,23 @@ namespace AOC2022
 
             MapNode goal = nodes[end_x, end_y];
 
-            Console.WriteLine("{0}", MakeBestPath(nodes[start_x, start_y], goal));
+            Console.WriteLine("{0}", MakeBestPath(new List<MapNode>{ nodes[start_x, start_y] }, goal));
 
-            int best_count = int.MaxValue;
-
+            List<MapNode> all_starts = new List<MapNode>();
             foreach (MapNode node in nodes)
             {
+                node.Reset();
+
                 if (node.height == 'a')
                 {
-                    foreach (MapNode reset_node in nodes)
-                    {
-                        reset_node.Reset();
-                    }
-
-                    int count = MakeBestPath(node, goal);
-                    best_count = Math.Min(count, best_count);
+                    all_starts.Add(node);
                 }
             }
 
-            Console.WriteLine("{0}", best_count);
+            Console.WriteLine("{0}", MakeBestPath(all_starts, goal));
         }
 
-        static int MakeBestPath(MapNode start, MapNode goal)
+        static int MakeBestPath(List<MapNode> starts, MapNode goal)
         {
             int h(MapNode node)
             {
@@ -145,10 +140,13 @@ namespace AOC2022
                 return (current.height - other.height) + 1;
             }
 
-            start.g_score = 0;
-            start.f_score = h(start);
+            foreach (MapNode start in starts)
+            {
+                start.g_score = 0;
+                start.f_score = h(start);
+            }
 
-            HashSet<MapNode> open_set = new HashSet<MapNode> { start };
+            HashSet<MapNode> open_set = new HashSet<MapNode>(starts);
 
             MapNode best = null;
 
