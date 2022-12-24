@@ -20,7 +20,8 @@
             //Puzzle14();
             //Puzzle15();
             //Puzzle16();
-            Puzzle17();
+            //Puzzle17();
+            Puzzle18();
         }
     }
 }
