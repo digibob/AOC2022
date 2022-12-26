@@ -27,7 +27,8 @@
             //Puzzle21();
             //Puzzle22();
             //Puzzle23();
-            Puzzle24();
+            //Puzzle24();
+            Puzzle25();
         }
     }
 }
